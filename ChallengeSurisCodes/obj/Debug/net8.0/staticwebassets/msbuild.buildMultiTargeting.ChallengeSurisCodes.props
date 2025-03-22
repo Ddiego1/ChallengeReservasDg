@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ChallengeSurisCodes.props" />
+</Project>
