@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ReservationMain from "./components/ReservationMain";
+import ReservationList from "./components/ReservationList";
 
 function App() {
+  const [updateList, setUpdateList] = useState(false);
+
+  const refreshReservations = () => {
+    setUpdateList(!updateList);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Sistema de Reservas</h1>
+      <ReservationMain onReservationCreated={refreshReservations} />
+      <ReservationList key={updateList} />
     </div>
   );
 }
